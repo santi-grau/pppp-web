@@ -1,0 +1,437 @@
+@font-face
+    font-family 'HelveticaNow'
+    src url('./../assets/fonts/HelveticaNowTextMedium.otf')
+    font-weight 400
+
+@font-face
+    font-family 'HelveticaNow'
+    src url('./../assets/fonts/HelveticaNowTextBold.otf')
+    font-weight 600
+
+@font-face
+    font-family 'geogrotesque'
+    src url('./../assets/fonts/geogrotesque.otf')
+
+@font-face
+    font-family 'funct'
+    src url('./../assets/fonts/funct.otf')
+
+@font-face
+    font-family 'marsh'
+    src url('./../assets/fonts/marsh.otf')
+
+@font-face
+    font-family 'kmstandard'
+    src url('./../assets/fonts/kmstandard.otf')
+
+@font-face
+    font-family 'cooper'
+    src url('./../assets/fonts/cooper.otf')
+
+@font-face
+    font-family 'archicoco'
+    src url('./../assets/fonts/archicoco.otf')
+
+@font-face
+    font-family 'dmserif'
+    src url('./../assets/fonts/dmserif.ttf')
+
+@font-face
+    font-family 'trim'
+    src url('./../assets/fonts/trim.otf')
+
+naviHeight = 32px
+
+.cooper, [data-font="cooper"]
+    font-family cooper !important
+
+.funct, [data-font="funct"]
+    font-family funct !important
+
+.dmserif, [data-font="dmserif"]
+    font-family dmserif !important
+
+.kmstandard, [data-font="kmstandard"]
+    font-family kmstandard !important
+
+.archicoco, [data-font="archicoco"]
+    font-family archicoco !important
+
+.helvetica, [data-font="helvetica"]
+    font-family HelveticaNow !important
+    font-weight 600
+
+.marsh, [data-font="marsh"]
+    font-family marsh !important
+
+.trim, [data-font="trim"]
+    font-family trim !important
+
+.geogrotesque, [data-font="geogrotesque"]
+    font-family geogrotesque !important
+
+html, body
+    padding 0
+    margin 0
+    // overscroll-behavior none
+    height 100%
+
+body
+    letter-spacing -1.5px
+    font-size 46px
+    line-height 50px
+    font-family HelveticaNow
+    webkit-font-smoothing antialiased
+    font-smoothing grayscale
+    background #bfbfbf
+    overflow-x hidden
+
+.bodySized
+    letter-spacing -0.25px
+    font-size 23px
+    line-height 23px
+    
+#menu
+    position absolute
+    background #ffffff
+    width 100vw
+    height 100%
+    overflow hidden
+    transition transform 0.45s
+    transform translate3d( 0vw, 0, 0 )
+    z-index 10
+    pointer-events none
+    top 0
+    left 100vw
+    transition left 0.4s
+    .page
+        transition transform 0.45s 0.45s
+    &.active
+        .page
+            transition transform 0.45s
+    &.active
+        display block
+        pointer-events auto
+        left 0
+    ul
+        margin 0
+        padding 0
+        list-style-type none
+
+#mainFlow
+    position absolute
+    top 0
+    left 0
+    width 100vw
+    height 100%
+    overflow hidden
+
+.navi
+    position fixed
+    background #000000
+    color #ffffff
+    height naviHeight
+    width 100%
+    z-index 100
+    font-weight 600
+    font-size 23px
+    letter-spacing -0.75px
+    .inner
+        position absolute
+        font-weight 600
+        top 50%
+        left 50%
+        width calc( 100% - 40px )
+        transform translate3d( -50%, -50%, 0 )
+    &#header
+        top 0
+        .inner
+            #pageTitle
+                font-weight 400
+                &.main
+                    margin-top -5px
+                    font-weight 600
+        #menuBut
+            position absolute
+            right 14px
+            top 6px
+            width 28px
+            height 28px
+            background-image url( './../assets/icons.svg' )
+            background-repeat no-repeat
+            background-size 256px 256px
+            background-position -210px -18px
+            transition transform 0.2s
+        &.inMenu
+            #menuBut
+                transform rotate( 90deg ) translate3d( -2px, 0, 0 )
+    &#footer
+        bottom 0
+        .inner
+            height 100%
+        .arrow
+            position absolute
+            top 50%
+            transform translate3d( 0, -50%, 0 )
+            opacity 0
+            &.right
+                right 0
+            &.left
+                left 0
+            &.menu
+                pointer-events none
+        &[data-navitype="blockPrev"]
+            .arrow.left
+                opacity 0.5
+                pointer-events none
+        &[data-navitype="blockNext"]
+            .arrow.left
+                opacity 1 !important
+            .arrow.right
+                opacity 0.5
+                pointer-events none
+        &[data-navitype="first"]
+            .arrow.right
+                opacity 1
+        &[data-navitype="last"]
+            .arrow.left
+                opacity 1
+        &[data-navitype="middle"]
+            .arrow.right
+                opacity 1 !important
+            .arrow.left
+                opacity 1 !important
+        &[data-navitype="none"]
+            .arrow.right
+                opacity 0
+            .arrow.left
+                opacity 0
+        &[data-navitype="inMenu"]
+            .arrow.right
+                display none
+                pointer-events none
+            .arrow.left
+                display none
+                pointer-events none
+            .arrow.menu
+                opacity 1
+                pointer-events auto
+        
+
+.clearfix:after {
+    content ""
+    display table
+    clear both
+}
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+#composerText
+    position absolute
+    top 0
+    left 0
+    z-index 100
+    position absolute
+    top 50%
+    left 50%
+    transform translate3d( -50%, -50%, 0 )
+    pointer-events none
+    opacity 0
+    // display none
+    #composerInner
+        width calc( 100% - 10px )
+        height calc( 100% - 10px )
+        position absolute
+        top 50%
+        left 50%
+        transform translate3d( -50%, -50%, 0 )
+        word-break break-word
+        
+        // display none
+    #composerVector
+        position relative
+
+
+.page
+    position absolute
+    background #ffffff
+    width 100vw
+    height 100%
+    overflow scroll
+    transition transform 0.45s
+    transform translate3d( 0vw, 0, 0 )
+    &.inlineEditor
+        background none
+    &.left
+        transform translate3d( -100vw, 0, 0 )
+    &.right
+        transform translate3d( 100vw, 0, 0 )
+    &.fullscreen
+        .inner
+            margin naviHeight 0
+    .inner
+        margin naviHeight + 20px 20px naviHeight + 20px 20px
+    &.active
+        display block
+        z-index 1
+    &.posterPreview
+        background #bfbfbf
+    ul.optionList
+        margin 0
+        padding 0
+        li
+            border-bottom solid 1px #444444
+            position relative
+            padding 15px 20px
+            &.selected::after
+                font-family HelveticaNow
+                content '√'
+                position absolute
+                right 20px
+    &[data-pid="size"]
+        #sizeSelector
+            position relative
+            background rgba( 0, 0, 0, 0.8 )
+            height naviHeight
+            color #ffffff
+            z-index 2
+            font-size 36px
+            .selector 
+                position relative
+                top -11px
+                &.more
+                    margin-left 20px
+                &.less
+                    margin-left 20px
+    &[data-pid="align"]
+        #alignSelector
+            position relative
+            background rgba( 0, 0, 0, 0.8 )
+            height naviHeight
+            z-index 2
+            .selector
+                background-image url( './../assets/icons.svg' )
+                background-repeat no-repeat
+                background-size 256px 256px
+                background-position 0px 0px
+                width 64px
+                height naviHeight
+                position absolute
+                display inline-block
+                &.left
+                    left 20px
+                    background-position -13px -16px
+                &.center
+                    left 50%
+                    background-position -64px -16px
+                    transform translate3d( -50%, 0 , 0 )
+                &.right
+                    right 20px
+                    background-position -115px -16px
+    &[data-pid="share"]
+        ul
+            list-style-type none
+            margin 0
+            padding 0
+    &[data-pid="about"]
+        ul
+            list-style-type none
+            margin 0
+            padding 0
+    &[data-pid="gallery"]
+        ul
+            list-style-type none
+            margin 0
+            padding 0
+            li
+                float left
+                width calc( 50% - 5px )
+                margin-left 10px
+                margin-bottom 10px
+                &:nth-child(odd)
+                    margin-left 0
+                .title
+                    font-size 12px
+                    line-height 14px
+                    letter-spacing -0.2px
+                    .util
+                        float right 
+                .imgCont
+                    width 100%
+                    margin-top 5px
+                    img
+                        display block
+.frame
+        position absolute
+        top 50%
+        left 50%
+        transform translate3d( -50%, -50%, 0 )
+        // background #00ff00
+        width 90vw
+        height 132vw
+        font-size 46px
+        line-height 50px
+        border solid 1px #444444
+        background #ffffff
+        textarea.poster
+            font-size 46px
+            line-height 50px
+            outline 0px none transparent
+            width calc( 100% - 10px )
+            height calc( 100% - 10px )
+            position absolute
+            top 50%
+            left 50%
+            transform translate3d( -50%, -50%, 0 )
+            // background #0f00ff
+            padding 0
+            // font-weight 600 !important
+            font-family HelveticaNow
+            // text-align center
+            letter-spacing -1.5px
+            overflow hidden
+            resize none
+            border none
+            background none
+
+            
+    
+#posterPreview
+    position absolute
+    width 90vw
+    height 132vw
+    top 50%
+    left 50%
+    transform translate3d( -50%, -50%, 0 )
+    text-align center
+    background #ffffff
+    overflow hidden
+    // z-index 400
+    pointer-events none
+    &.screenshot
+        top 0
+        left 0
+        transform translate3d( 0, 0, 0 )
+    .inner
+        position absolute
+        width 90%
+        top 50%
+        left 50%
+        transform translate3d( -50%, -50%, 0 )
+        // background rgba( 0, 0, 0, 0.05 )
+        transition transform 0.4s
+        overflow-wrap break-word
+
+p
+    &.title
+        font-weight 600
+    &.wlinebreaks
+        white-space pre
+
+a
+    color #000000

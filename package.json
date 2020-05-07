@@ -1,0 +1,25 @@
+{
+  "name": "simulator",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel app/views/index.pug --open --https",
+    "build": "rm -rf ./../build && parcel build app/views/index.pug --no-source-maps --out-dir ./../build --public-url '.'"
+  },
+  "keywords": [],
+  "author": "proper-code",
+  "license": "ISC",
+  "devDependencies": {
+    "figlet": "*",
+    "parcel-bundler": "*",
+    "pug": "^2.0.4",
+    "stylus": "^0.54.7"
+  },
+  "dependencies": {
+    "EventEmitter": "^1.0.0",
+    "jspdf": "^1.5.3",
+    "save-svg-as-png": "^1.4.17",
+    "text-to-svg": "^3.1.5"
+  }
+}
