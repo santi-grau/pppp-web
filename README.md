@@ -1,1 +1,3 @@
 # pppp-web
+
+$ npm i
