@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel app/views/index.pug --open --https",
-    "build": "rm -rf ./../build && parcel build app/views/index.pug --no-source-maps --out-dir ./../build --public-url '.'"
+    "build": "rm -rf ./../build && parcel build app/views/index.pug --no-source-maps --out-dir ./../build --public-url '.'",
+    "push": "git remote | xargs -L1 -I R git push R master"
   },
   "keywords": [],
   "author": "proper-code",
