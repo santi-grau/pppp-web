@@ -10,7 +10,6 @@ import kmstandard from './../assets/fonts/kmstandard.otf'
 import trim from './../assets/fonts/trim.otf'
 import funct from './../assets/fonts/funct.otf'
 
-
 import { saveSvgAsPng, svgAsPngUri } from 'save-svg-as-png'
 import jsPDF from 'jspdf'
 
@@ -82,8 +81,6 @@ class Poster{
         vector.setAttribute( 'width',  textarea.parentNode.getBoundingClientRect().width )
         vector.setAttribute( 'height', textarea.parentNode.getBoundingClientRect().height )
 
-
-        
         const style = getComputedStyle( textarea )
         while (vector.lastChild) vector.removeChild( vector.lastChild )
         // console.log( style, style.backgroundColor )
@@ -152,10 +149,7 @@ class Poster{
                 if( format == 'pdf' ) this.downloadPDF( vector, title )
                 if( format == 'svg' ) this.downloadSVG( vector, title, meta )
             }, 1000 )
-        }
-
-        
-        
+        } 
     }
 
     slugify( string ) {
