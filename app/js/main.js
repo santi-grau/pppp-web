@@ -7,7 +7,7 @@ var footer = document.querySelector( '#footer' )
 
 if (window.location.href.indexOf('localhost') > -1) {
     window.inLocal = true
-    window.preventSave = false
+    window.preventSave = true
 }
 
 class Flow{ 
@@ -25,7 +25,8 @@ class Flow{
             this.pages.push( pageObject )
         })
 
-        this.navigate( 0 )
+        if (window.location.href.indexOf('localhost') > -1) this.navigate( 0 )
+        else this.navigate( 0 )
     }
 
     update( e ){

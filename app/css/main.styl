@@ -1,11 +1,11 @@
 @font-face
     font-family 'HelveticaNow'
-    src url('./../assets/fonts/HelveticaNowTextMedium.otf')
+    src url('./../assets/fonts/dm.ttf')
     font-weight 400
 
 @font-face
     font-family 'HelveticaNow'
-    src url('./../assets/fonts/HelveticaNowTextBold.otf')
+    src url('./../assets/fonts/dm.ttf')
     font-weight 600
 
 @font-face
@@ -253,8 +253,11 @@ body
         word-break break-word
         
         // display none
-    #composerVector
-        position relative
+#composerVector
+    position relative
+    z-index 200
+    pointer-events none
+    display none
 
 
 .page
@@ -370,37 +373,44 @@ body
                     img
                         display block
 .frame
+    position absolute
+    top 50%
+    left 50%
+    transform translate3d( -50%, -50%, 0 )
+    // background #00ff00
+    background-size contain
+    width 90vw
+    height 132vw
+    font-size 46px
+    line-height 50px
+    border solid 1px #444444
+    background-color #ffffff
+    background-image url( './../assets/firma.svg' )
+    background-repeat no-repeat
+    background-size 70%
+    background-position 48% 97%
+    &.white
+        background-image url( './../assets/firma_i.svg' )
+    textarea.poster
+        font-size 46px
+        line-height 50px
+        outline 0px none transparent
+        width calc( 100% - 10px )
+        height calc( 100% - 10px )
         position absolute
         top 50%
         left 50%
         transform translate3d( -50%, -50%, 0 )
-        // background #00ff00
-        width 90vw
-        height 132vw
-        font-size 46px
-        line-height 50px
-        border solid 1px #444444
-        background #ffffff
-        textarea.poster
-            font-size 46px
-            line-height 50px
-            outline 0px none transparent
-            width calc( 100% - 10px )
-            height calc( 100% - 10px )
-            position absolute
-            top 50%
-            left 50%
-            transform translate3d( -50%, -50%, 0 )
-            // background #0f00ff
-            padding 0
-            // font-weight 600 !important
-            font-family HelveticaNow
-            // text-align center
-            letter-spacing -1.5px
-            overflow hidden
-            resize none
-            border none
-            background none
+        // background #0f00ff
+        padding 0
+        // font-weight 600 !important
+        font-family HelveticaNow
+        // text-align center
+        letter-spacing -1.5px
+        overflow hidden
+        resize none
+        border none
+        background none
 
             
     
@@ -416,6 +426,7 @@ body
     overflow hidden
     // z-index 400
     pointer-events none
+
     &.screenshot
         top 0
         left 0
