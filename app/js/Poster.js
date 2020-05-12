@@ -178,6 +178,7 @@ class Poster{
     }
 
     downloadSVG( svg, title, meta ){
+        if( window.preventSave ) return
         fetch('https://cors-anywhere.herokuapp.com/https://radiant-springs-85452.herokuapp.com/api',{ 
         // fetch('http://localhost:5000/api',{ 
             method: 'post', 

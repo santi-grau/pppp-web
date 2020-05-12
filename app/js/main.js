@@ -25,7 +25,7 @@ class Flow{
             this.pages.push( pageObject )
         })
 
-        if (window.location.href.indexOf('localhost') > -1) this.navigate( 0 )
+        if (window.location.href.indexOf('localhost') > -1) this.navigate( 7 )
         else this.navigate( 0 )
     }
 

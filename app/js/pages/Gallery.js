@@ -1,5 +1,6 @@
 import Page from './../Page'
 import { saveSvgAsPng, svgAsPngUri } from 'save-svg-as-png'
+import DownloadManager from './../DownloadManager'
 
 class Gallery extends Page{
     constructor( p ){
@@ -9,7 +10,7 @@ class Gallery extends Page{
         var api_key = 'AIzaSyC8y5mzWn4GeKgezS4_s1j0OZ4wg5cATVY';
         var folderId = '1AXV4s0qcnwPydKjFNb1id5YmQvifmuMx';
         var url = "https://www.googleapis.com/drive/v2/files?q='" + folderId + "'+in+parents&key=" + api_key;
-
+        this.downloadManager = new DownloadManager()
         fetch(url).then(function(response) { return response.json(); }).then( (myJson) => {
             console.log(myJson);
             myJson.items.forEach( f => {
@@ -51,6 +52,7 @@ class Gallery extends Page{
 
         var linkpdf = document.createElement( 'a' )
         linkpdf.setAttribute( 'href', 'javascript:void(0);')
+        linkpdf.addEventListener( 'click' , ( ) => this.openPNG( f.downloadUrl ) )
         linkpdf.innerHTML = 'PDF '
         util.appendChild( linkpdf )
 
@@ -63,13 +65,15 @@ class Gallery extends Page{
         
     }
 
+    openPDF( l ){
+        fetch( 'https://cors-anywhere.herokuapp.com/' + l ).then( response => response.text() ).then( svg => {
+            this.downloadManager.downloadPDF( document.getElementsByTagName( 'svg' )[ 0 ] )
+        })
+    }
+
     openPNG( l ){
         fetch( 'https://cors-anywhere.herokuapp.com/' + l ).then( response => response.text() ).then( svg => {
-            var path = new DOMParser().parseFromString( svg, 'image/svg+xml').querySelector( 'svg' )
-            svgAsPngUri( path, { scale: 2 } ).then( uri => {
-                // console.log( uri )
-                window.open(uri,'_blank');
-            } )
+            this.downloadManager.downloadPNG( document.getElementsByTagName( 'svg' )[ 0 ] )
         })
     }
 }

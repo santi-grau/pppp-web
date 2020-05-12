@@ -1,19 +1,24 @@
 import Page from './../Page'
-import { saveSvgAsPng, svgAsPngUri } from 'save-svg-as-png'
+import DownloadManager from './../DownloadManager'
 
 class Save extends Page{
     constructor( p ){
         super( p )
+        this.downloadManager = new DownloadManager()
+        Object.values( this.node.getElementsByClassName( 'save' ) ).forEach( b => b.addEventListener( 'click' , ( e ) => this[ 'export' + e.target.dataset.format ]()  ) )
+    }
 
+    exportpdf(){
+        this.downloadManager.downloadPDF( document.getElementsByTagName( 'svg' )[ 0 ] )
+    }
+
+    exportpng(){
+        this.downloadManager.downloadPNG( document.getElementsByTagName( 'svg' )[ 0 ] )
     }
 
     onEnterPage(){
-        // if( !window.posterUploaded ) this.emit( 'updateFlow' , { action : 'posterExport', data : 'svg' } )
+        if( !window.posterUploaded ) this.emit( 'updateFlow' , { action : 'posterExport', data : 'svg' } )
         window.posterUploaded = true
-        var vector = document.getElementsByTagName( 'svg' )[ 0 ]
-        svgAsPngUri( vector, { scale: 2 } ).then( uri => {
-            this.node.querySelector( '.save[data-format=png]' ).href = uri
-        } )
     }
 }
 
