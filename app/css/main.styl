@@ -40,6 +40,10 @@
     font-family 'trim'
     src url('./../assets/fonts/trim.otf')
 
+@font-face
+    font-family 'glacial'
+    src url('./../assets/fonts/glacial.otf')
+
 naviHeight = 32px
 
 .cooper, [data-font="cooper"]
@@ -79,7 +83,7 @@ html, body
 body
     letter-spacing -1.5px
     font-size 46px
-    line-height 50px
+    line-height 46px
     font-family HelveticaNow
     webkit-font-smoothing antialiased
     font-smoothing grayscale
@@ -170,6 +174,7 @@ body
         .inner
             height 100%
         .arrow
+            font-size 35px
             position absolute
             top 50%
             transform translate3d( 0, -50%, 0 )
@@ -449,3 +454,23 @@ p
 
 a
     color #000000
+
+#desktopwarn
+    position absolute
+    top 0
+    left 0
+    width 100vw
+    height 100vh
+    background #ffffff
+    z-index 1000
+    pointer-events none
+    display none
+    &.active
+        display block
+    .inner
+        position absolute
+        width 640px
+        left 50%
+        top 50%
+        transform translate3d( -50%, -50%, 0 )
+        text-align center

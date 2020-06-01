@@ -15,7 +15,7 @@ html
       .page.active( data-title ='Menu', data-pid='menu' )
         .inner
           ul
-            li.menuItem #[a( href = 'javascript:void(0)' data-target = 'news' ) News ]
+            li.menuItem #[a( href = 'javascript:void(0)' data-target = 'news2' ) News ]
             li.menuItem #[a( href = 'javascript:void(0)' data-target = 'gallery' ) Galería ]
             li.menuItem #[a( href = 'javascript:void(0)' data-target = 'about' ) About ]
             li.menuItem #[a( href = 'javascript:void(0)' data-target = 'manifesto' ) Manifesto ]
@@ -25,8 +25,8 @@ html
       .page.right( data-title ='News', data-pid='news2' )
         .inner
           p Queremos informarte de las diferentes proyecciones semanales y mensuales en distintos lugares del mundo.
-          input.bodySized( type='text' placeholder="nombre@correo.com")
-          p #[a(href='javascript:void(0)') Enviar ]
+          p Mándanos un correo para que podamos añadirte a nuestra lista.
+          p #[a(href='mailto:publicprotestposter@gmail.com') Enviar ]
       .page.right( data-title ='Galería', data-pid='gallery', data-class = 'Gallery' )
         .inner
           p.bodySized Aquí encontrarás todos los posters realizados por la comunidad.
@@ -93,10 +93,7 @@ html
           p.title.wlinebreaks
             | public protest
             | project
-          p La plataforma horizontal que da voz a las personas, a los barrios y a las ciudades. La herramienta abierta con la que puedes diseñar tu propio poster y compartirlo en tus redes y con la comunidad manteniendo tu anonimato. Cuando acabes tu poster formará parte de la galería anónima. Proyectaremos tus posters y los que la comunidad, diseñe desde alguno de nuestros puntos ubicados en la ciudad de Barcelona y otras ciudades del mundo. También podrás guardarlos en tus fotos, compartirlo como quieras, o guardarlo para   para imprimir y darle el uso que quieras. Esperamos que se utilice la plataforma de una manera constructiva y positiva, evitando ser moralistas o dogmáticos. Protestar es ser testigo. El humor y el respeto son importantes para esta plataforma en demo.
-      .page( data-title ='0. Intro', data-pid='intro1' )
-        .inner
-          p La herramienta con la que puedes diseñar tu propio poster y compartirlo en comunidad
+          p La plataforma horizontal para tu móvil que da voz a las personas, a los barrios y a las ciudades. La herramienta abierta con la que puedes diseñar tu propio poster y compartirlo en tus redes y con la comunidad manteniendo tu anonimato. Cuando acabes tu poster formará parte de la galería anónima. Proyectaremos tus posters y los que la comunidad, diseñe desde alguno de nuestros puntos ubicados en la ciudad de Barcelona y otras ciudades del mundo. También podrás guardarlos en tus fotos, compartirlo como quieras, o guardarlo para   para imprimir y darle el uso que quieras. Esperamos que se utilice la plataforma de una manera constructiva y positiva, evitando ser moralistas o dogmáticos. Protestar es ser testigo. El humor y el respeto son importantes para esta plataforma en demo.
       .page( data-title ='0. Intro', data-pid='intro2' )
         .inner
           p Además, proyectaremos los posters que la comunidad diseñe desde alguno de nuestros puntos ubicados en la ciudad de Barcelona 
@@ -126,7 +123,7 @@ html
             li.dmserif(data-font='dmserif') HOLA!
             li.kmstandard(data-font='kmstandard') HOLA!
             li.marsh(data-font='marsh' style='padding-top:18px;padding-bottom:7px;') HOLA!
-            li.archicoco(data-font='archicoco') HOLA!
+            li.archicoco(data-font='glacial') HOLA!
             li.trim(data-font='trim') HOLA!
             li.geogrotesque(data-font='geogrotesque') HOLA!
       .page.posterPreview.fullscreen( data-title ='5. Tamaño', data-pid='size', data-class = 'Size' )
@@ -164,17 +161,17 @@ html
           input.bodySized( type='text' name='zipcode' placeholder="ZIP")
           input.bodySized( type='text' name='country' placeholder="País")
           p #[a#uploadBut(href='javascript:void(0)') Enviar ]
+      .page.right( data-title ='News', data-pid='news' )
+        .inner
+          p Queremos informarte de las diferentes proyecciones semanales y mensuales en distintos lugares del mundo.
+          p Mándanos un correo para que podamos añadirte a nuestra lista.
+          p #[a(href='mailto:publicprotestposter@gmail.com') Enviar ]
       .page( data-title ='8. Guardar', data-pid='save2', data-class = 'Save' )
         .inner
           p Tu cartel será anónimo y formará parte de la galería. Ahora puedes guardarlo en tus #[a.save(href='javascript:void(0);' data-format='png') fotos], o en PDF para #[a.save(href='javascript:void(0);' data-format='pdf') imprimir]
       .page( data-title ='9. Compartir', data-pid='share', data-class = 'Share' )
         .inner
           p La difusión es importante, compártelo en la Red para llegar un mayor número de personas con tu mensaje y/o imprímelo para dejar huella lo más cerca posible del lugar que le corresponda al que se dirige el mensaje
-      .page.right( data-title ='News', data-pid='news' )
-        .inner
-          p Queremos informarte de las diferentes proyecciones semanales y mensuales en distintos lugares del mundo.
-          input.bodySized( type='text' placeholder="nombre@correo.com")
-          p #[a(href='javascript:void(0)') Enviar ]
     #header.navi
       .inner
         #pageTitle.main ppp
@@ -184,4 +181,6 @@ html
         span.arrow.left ←
         span.arrow.right →
         span.arrow.menu ←
+    #desktopwarn
+      .inner Plataforma diseñada para su uso en dispositivos móviles.
     script(src='../js/main.js')

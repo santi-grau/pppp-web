@@ -5,10 +5,17 @@ import Poster from './Poster'
 var header = document.querySelector( '#header' )
 var footer = document.querySelector( '#footer' )
 
+if( ! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    document.querySelector( '#desktopwarn' ).classList.add( 'active' )
+}
+
 if (window.location.href.indexOf('localhost') > -1) {
     window.inLocal = true
     window.preventSave = true
+    document.querySelector( '#desktopwarn' ).classList.remove( 'active' )
 }
+
+
 
 class Flow{ 
     constructor( page = 0 ){
@@ -25,7 +32,7 @@ class Flow{
             this.pages.push( pageObject )
         })
 
-        if (window.location.href.indexOf('localhost') > -1) this.navigate( 7 )
+        if (window.location.href.indexOf('localhost') > -1) this.navigate( 0 )
         else this.navigate( 0 )
     }
 

@@ -9,7 +9,7 @@ class Gallery extends Page{
         var api = 'AIzaSyBaLx1pf7T2E0ANuktHCAXDu9bfIpGU4X8'
         var api_key = 'AIzaSyC8y5mzWn4GeKgezS4_s1j0OZ4wg5cATVY';
         var folderId = '1AXV4s0qcnwPydKjFNb1id5YmQvifmuMx';
-        var url = "https://www.googleapis.com/drive/v2/files?q='" + folderId + "'+in+parents&key=" + api_key;
+        var url = "https://www.googleapis.com/drive/v2/files?q='" + folderId + "'+in+parents&key=" + api_key + "&orderBy=modifiedDate desc";
         this.downloadManager = new DownloadManager()
         fetch(url).then(function(response) { return response.json(); }).then( (myJson) => {
             console.log(myJson);

@@ -8,6 +8,7 @@ import dmserif from './../assets/fonts/dmserif.ttf'
 import archicoco from './../assets/fonts/archicoco.otf'
 import kmstandard from './../assets/fonts/kmstandard.otf'
 import trim from './../assets/fonts/trim.otf'
+import glacial from './../assets/fonts/glacial.otf'
 import funct from './../assets/fonts/funct.otf'
 
 import { saveSvgAsPng, svgAsPngUri } from 'save-svg-as-png'
@@ -22,6 +23,7 @@ var fonts = {
     dmserif : dmserif,
     archicoco : archicoco,
     kmstandard : kmstandard,
+    glacial : glacial,
     funct : funct
 }
 
