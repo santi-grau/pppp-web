@@ -42,19 +42,9 @@ class Gallery extends Page{
         var util = document.createElement( 'span' )
         util.classList.add( 'util' )
         topContainer.appendChild( util )
-        util.innerHTML = 'Descarga '
+        util.innerHTML = ' '
 
-        var linkjpg = document.createElement( 'a' )
-        linkjpg.setAttribute( 'href', 'javascript:void(0);')
-        linkjpg.innerHTML = 'JPG '
-        linkjpg.addEventListener( 'click' , ( ) => this.openPNG( f.downloadUrl ) )
-        util.appendChild( linkjpg )
-
-        var linkpdf = document.createElement( 'a' )
-        linkpdf.setAttribute( 'href', 'javascript:void(0);')
-        linkpdf.addEventListener( 'click' , ( ) => this.openPNG( f.downloadUrl ) )
-        linkpdf.innerHTML = 'PDF '
-        util.appendChild( linkpdf )
+        
 
         var imgCont = document.createElement( 'div' )
         imgCont.classList.add( 'imgCont' )
