@@ -16,6 +16,85 @@ if (window.location.href.indexOf('localhost') > -1) {
 }
 
 
+var lang = 'es'
+var userLang = navigator.language || navigator.userLanguage
+if( userLang.split('-')[ 0 ] == 'en' ) lang = 'en'
+document.body.classList.add( 'l-' + lang )
+
+
+var strings = {
+    main : {
+        es : 'Hola!',
+        en : 'Hello!'
+    },
+    intro2 : {
+        es : '1/6 &nbsp; El mensaje',
+        en : '1/6 &nbsp; The message'
+    },
+    writer : {
+        es : '2/6 &nbsp;  Redacción',
+        en : '2/6 &nbsp;  Writing'
+    },
+    font : {
+        es : '3/6 &nbsp; Tipografía',
+        en : '3/6 &nbsp; Font'
+    },
+    size : {
+        es : '4/6 &nbsp; Tamaño',
+        en : '4/6 &nbsp;  Size'
+    },
+    align : {
+        es : '5/6 &nbsp; Alinear',
+        en : '5/6 &nbsp;  Alignment'
+    },
+    color : {
+        es : '6/6 &nbsp; Color',
+        en : '6/6 &nbsp;  Color'
+    },
+    preview : {
+        es : 'Tu póster',
+        en : 'Your poster'
+    },
+    save2 : {
+        es : '¡Enviado!',
+        en : 'Sent!'
+    },
+    news2 : {
+        es : 'News',
+        en : 'News'
+    },
+    gallery : {
+        es : 'Galería',
+        en : 'Gallery'
+    },
+    about : {
+        es : 'About',
+        en : 'About'
+    },
+    manifesto : {
+        es : 'Manifesto',
+        en : 'Manifesto'
+    },
+    contacto : {
+        es : 'Contacto',
+        en : 'Contact'
+    },
+    faq : {
+        es : 'FAQs',
+        en : 'FAQs'
+    },
+    credits : {
+        es : 'Créditos',
+        en : 'Credits'
+    },
+    placeholder : {
+        es : 'Escribe aquí',
+        en : 'Write here'
+    }
+}
+
+document.querySelectorAll('textarea.poster').forEach( p => p.placeholder = strings.placeholder[ lang ] )
+
 
 class Flow{ 
     constructor( page = 0 ){
@@ -92,7 +171,7 @@ class Flow{
 
         var headerTitle = document.querySelector( '#pageTitle' )
         headerTitle.classList.toggle( 'main', this.page == 0 ) 
-        headerTitle.innerHTML = currentPage.dataset.title
+        headerTitle.innerHTML = strings[ currentPage.dataset.pid ][ lang ]
     }
 }
 
@@ -117,7 +196,8 @@ class Menu{
                 this.node.querySelector( '.page[data-pid=' + e.target.dataset.target + ']' ).classList.add( 'active' )
                 this.active = e.target.dataset.target
                 var headerTitle = document.querySelector( '#pageTitle' )
-                headerTitle.innerHTML = this.node.querySelector( '.page[data-pid=' + e.target.dataset.target + ']' ).dataset.title 
+
+                headerTitle.innerHTML = strings[ e.target.dataset.target ][ lang ]
             } )
         } ) 
     }

@@ -5,7 +5,6 @@ import geogrotesque from './../assets/fonts/geogrotesque.otf'
 import marsh from './../assets/fonts/marsh.otf'
 import cooper from './../assets/fonts/cooper.otf'
 import dmserif from './../assets/fonts/dmserif.ttf'
-import archicoco from './../assets/fonts/archicoco.otf'
 import kmstandard from './../assets/fonts/kmstandard.otf'
 import trim from './../assets/fonts/trim.otf'
 import glacial from './../assets/fonts/glacial.otf'
@@ -21,7 +20,6 @@ var fonts = {
     trim : trim,
     cooper : cooper,
     dmserif : dmserif,
-    archicoco : archicoco,
     kmstandard : kmstandard,
     glacial : glacial,
     funct : funct

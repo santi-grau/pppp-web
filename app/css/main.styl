@@ -49,6 +49,9 @@ naviHeight = 32px
 .cooper, [data-font="cooper"]
     font-family cooper !important
 
+.glacial, [data-font="glacial"]
+    font-family glacial !important
+
 .funct, [data-font="funct"]
     font-family funct !important
 
@@ -89,6 +92,11 @@ body
     font-smoothing grayscale
     background #bfbfbf
     overflow-x hidden
+    &.l-en
+        .es
+            display none
+        .en
+            display inline
 
 .bodySized
     letter-spacing -0.25px
@@ -173,7 +181,7 @@ body
         .inner
             height 100%
         .arrow
-            font-size 35px
+            font-size 48px
             position absolute
             top 50%
             transform translate3d( 0, -50%, 0 )
@@ -473,3 +481,6 @@ a
         top 50%
         transform translate3d( -50%, -50%, 0 )
         text-align center
+
+.en
+    display none
